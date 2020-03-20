@@ -232,7 +232,8 @@ paths:
   /random:
     get:
       summary: Random
-      tags: []
+      tags:
+        - Random Design
       responses:
         '200':
           description: 200 Response
