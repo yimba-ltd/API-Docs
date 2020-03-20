@@ -229,6 +229,30 @@ paths:
       summary: History
       tags:
         - Card History Service
+  /random:
+    get:
+      summary: Random
+      tags: []
+      responses:
+        '200':
+          description: 200 Response
+          schema:
+            type: object
+            properties:
+              design_identifier:
+                type: string
+          examples:
+            Example Response:
+              design_identifier: b7b04608-62af-11ea-b9cb-02cb2335fe02
+      operationId: get-random
+      description: 'The GET Method at the random endpoint provides a method for you to obtain a random design from your card program. Simply provide the **clientID** relative to your required card programme and the Yimba Platform will return a randomised card design ID for you to update a card design with.  **NOTE**: The method returns a valid design_identifier only and you must make /design/POST request to update the card '
+      parameters:
+        - type: string
+          in: header
+          name: x-client-access-token
+          required: true
+      security:
+        - jwt-rsa-custom-authorizer: []
 securityDefinitions:
   jwt-rsa-custom-authorizer:
     type: apiKey
