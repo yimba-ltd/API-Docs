@@ -2,11 +2,11 @@ openapi: 3.0.0
 info:
   title: Yimba Security
   version: 1.0.0
-  description: "The Yimba Security Service manages your access to the Yimba API's and will issue a bearer token that is valid for a 24 hour period."
+  description: The Yimba Security Service manages your access to the Yimba API's and will issue a bearer token that is valid for a 24 hour period.
 servers:
   - url: 'https://security.yimbatech.com/apitoken'
 paths:
-  /apitoken:
+  '':
     post:
       summary: Request Security Token
       operationId: post-apitoken
@@ -55,6 +55,7 @@ paths:
         description: ''
       tags:
         - Get API Token
+    parameters: []
 components:
   schemas: {}
   securitySchemes: {}
