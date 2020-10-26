@@ -87,6 +87,19 @@ paths:
       summary: Register New Card
       tags:
         - Base Card Services
+        put:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "card_identifier"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "provider_reference"
+        in: "header"
+        required: false
+        type: "string"
+      responses: {}
   /design:
     get:
       produces:
