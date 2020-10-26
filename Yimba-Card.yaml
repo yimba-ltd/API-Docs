@@ -88,7 +88,7 @@ paths:
       tags:
         - Base Card Services
     put:
-      summary: ''
+      summary: Update Provider Reference ID
       operationId: put
       responses:
         '200':
