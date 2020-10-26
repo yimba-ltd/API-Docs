@@ -87,6 +87,27 @@ paths:
       summary: Register New Card
       tags:
         - Base Card Services
+    put:
+      summary: ''
+      operationId: put
+      responses:
+        '200':
+          description: OK
+          examples:
+            Example Response:
+              Card Provider Reference Updated: 108af8e3-bc18-4ffe-bfcb-4a66a034f5c8
+      description: The PUT Method specified at this branch will allow you to send an update to the Card Metadata to change the Card Provider Reference ID on demand. The request requires you to send the **card_identifier** as well as your new reference string specified in the **provider_reference** field
+      security:
+        - jwt-rsa-custom-authorizer: []
+      parameters:
+        - type: string
+          in: header
+          name: card_identifier
+          required: true
+        - type: string
+          in: header
+          name: provider_reference
+          required: true
   /design:
     get:
       produces:
@@ -129,7 +150,7 @@ paths:
       security:
         - jwt-rsa-custom-authorizer: []
       summary: Get Current Design
-      description: 'The GET operation for the designs endpoint will query the given card specified by the **CardID** as passed in the header below. The current design applied to the card will be returned via URL.'
+      description: The GET operation for the designs endpoint will query the given card specified by the **CardID** as passed in the header below. The current design applied to the card will be returned via URL.
       tags:
         - Card Design Services
     post:
@@ -161,7 +182,7 @@ paths:
               status: ok
       security:
         - jwt-rsa-custom-authorizer: []
-      description: 'The POST operation at the design endpoint will update the stored design identifier for the specified card. This request will require you to specify the **CardID** of the card you are updating as well as the corresponding **DesignID** that is obtained from the Yimba Design Service.'
+      description: The POST operation at the design endpoint will update the stored design identifier for the specified card. This request will require you to specify the **CardID** of the card you are updating as well as the corresponding **DesignID** that is obtained from the Yimba Design Service.
       summary: Set Card Design
       tags:
         - Card Design Services
