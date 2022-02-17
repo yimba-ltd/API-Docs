@@ -171,6 +171,10 @@ paths:
           in: header
           required: true
           type: string
+        - type: string
+          in: header
+          name: profile_identifier
+          required: true
       responses:
         '200':
           description: OK
@@ -184,7 +188,10 @@ paths:
               status: ok
       security:
         - jwt-rsa-custom-authorizer: []
-      description: The POST operation at the design endpoint will update the stored design identifier for the specified card. This request will require you to specify the **CardID** of the card you are updating as well as the corresponding **DesignID** that is obtained from the Yimba Design Service.
+      description: |-
+        The POST operation at the design endpoint will update the stored design identifier for the specified card. This request will require you to specify the **CardID** of the card you are updating as well as the corresponding **DesignID** that is obtained from the Yimba Design Service.
+
+        Once the POST operation completes and returns the required status, the Yimba Platform creates and sends the appropriate network update through the required TSP to facilitate the design change 
       summary: Set Card Design
       tags:
         - Card Design Services
