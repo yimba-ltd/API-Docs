@@ -30,7 +30,7 @@ paths:
                     access_token: Token Data
                     expires_in: 86400
                     token_type: Bearer
-      description: 'This endpoint allows you to send a POST request with your **Client Authentication ID** and **Client Passkey** which are issued to you by Yimba. In order to ensure correct authentication, POST requests must be made with the exact Audience data in the request body as show below'
+      description: 'This endpoint allows you to send a POST request with your **Client Authentication ID** and **Client Passkey** which are issued to you by Yimba. In order to ensure correct authentication, POST requests must be made with the exact data in the request body as show below'
       requestBody:
         content:
           application/json:
