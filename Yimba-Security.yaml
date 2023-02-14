@@ -85,3 +85,24 @@ paths:
 components:
   schemas: {}
   securitySchemes: {}
+  parameters:
+    username:
+      name: username
+      in: query
+      required: false
+      schema:
+        type: string
+      description: Issued in Email Format
+    password:
+      name: password
+      in: query
+      required: false
+      schema:
+        type: string
+    returnSecureToken:
+      name: returnSecureToken
+      in: query
+      required: false
+      schema:
+        type: boolean
+      description: defaults to true
