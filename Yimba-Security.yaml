@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
   title: Yimba Security
-  version: 1.0.0
-  description: The Yimba Security Service manages your access to the Yimba API's and will issue a bearer token that is valid for a 24 hour period.
+  version: 1.0.1
+  description: The Yimba Security Service manages your access to the Yimba API's and will issue a bearer token that is valid for a 60 minute period.
 servers:
   - url: 'https://security.yimbatech.com'
 paths:
