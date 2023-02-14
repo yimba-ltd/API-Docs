@@ -7,11 +7,6 @@ servers:
   - url: 'https://security.yimbatech.com'
 paths:
   /apitoken:
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-apitoken
     post:
       summary: Get Valid Security Token
       operationId: post-apitoken
