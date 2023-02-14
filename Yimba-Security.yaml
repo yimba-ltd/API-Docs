@@ -55,6 +55,68 @@ paths:
                     registered: true
                     refreshToken: APJWN8dI8CVL5764yVNqjqjhk8KPRue-FlpNBHRzpaj-5S-VhNcc-bxJprRtLLTceJcTMkJIjh5cQ2syNL_BfgTWBC4Ts5Tmhb2OCjR70MOdNDcYbihjObpNC9YmCTThKhliYxzrjRGqV8BO-36Ck2RgfaAaxDeBB8yHLDdyzJKI6tqcxZGm5Rkf-MiqlCFknR6VjtWhzSGTv13naoRMVTWd5B7pWJ4mHg
                     expiresIn: '3600'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: integer
+                      message:
+                        type: string
+                      errors:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            message:
+                              type: string
+                            domain:
+                              type: string
+                            reason:
+                              type: string
+                x-examples:
+                  Example 1:
+                    error:
+                      code: 400
+                      message: INVALID_PASSWORD
+                      errors:
+                        - message: INVALID_PASSWORD
+                          domain: global
+                          reason: invalid
+              examples:
+                Invalid Password:
+                  value:
+                    error:
+                      code: 400
+                      message: INVALID_PASSWORD
+                      errors:
+                        - message: INVALID_PASSWORD
+                          domain: global
+                          reason: invalid
+                Invalid Username:
+                  value:
+                    error:
+                      code: 400
+                      message: EMAIL_NOT_FOUND
+                      errors:
+                        - message: EMAIL_NOT_FOUND
+                          domain: global
+                          reason: invalid
+                Malformed Request:
+                  value:
+                    error:
+                      code: 400
+                      message: MISSING_EMAIL
+                      errors:
+                        - message: MISSING_EMAIL
+                          domain: global
+                          reason: invalid
       requestBody:
         content:
           application/json:
@@ -85,24 +147,4 @@ paths:
 components:
   schemas: {}
   securitySchemes: {}
-  parameters:
-    username:
-      name: username
-      in: query
-      required: false
-      schema:
-        type: string
-      description: Issued in Email Format
-    password:
-      name: password
-      in: query
-      required: false
-      schema:
-        type: string
-    returnSecureToken:
-      name: returnSecureToken
-      in: query
-      required: false
-      schema:
-        type: boolean
-      description: defaults to true
+  parameters: {}
