@@ -4,11 +4,16 @@ info:
   version: 1.0.0
   description: The Yimba Security Service manages your access to the Yimba API's and will issue a bearer token that is valid for a 24 hour period.
 servers:
-  - url: 'https://security.yimbatech.com/apitoken'
+  - url: 'https://security.yimbatech.com'
 paths:
-  '':
+  /apitoken:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-apitoken
     post:
-      summary: Request Security Token
+      summary: Get Valid Security Token
       operationId: post-apitoken
       responses:
         '200':
@@ -18,44 +23,70 @@ paths:
               schema:
                 type: object
                 properties:
-                  access_token:
+                  kind:
                     type: string
-                  expires_in:
+                  localId:
                     type: string
-                  token_type:
+                  email:
                     type: string
+                  displayName:
+                    type: string
+                  idToken:
+                    type: string
+                  registered:
+                    type: boolean
+                  refreshToken:
+                    type: string
+                  expiresIn:
+                    type: string
+                x-examples:
+                  Example 1:
+                    kind: identitytoolkit#VerifyPasswordResponse
+                    localId: OLJ5KjR5txUaqQWNnTLUmv4HqIb2
+                    email: samsung@yimba.com
+                    displayName: ''
+                    idToken: eyJhbGciOiJSUzI1NiIsImtpZCI6ImFlYjMxMjdiMjRjZTg2MDJjODEyNDUxZThmZTczZDU4MjkyMDg4N2MiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20veWltYmEtc2VjdXJpdHkiLCJhdWQiOiJ5aW1iYS1zZWN1cml0eSIsImF1dGhfdGltZSI6MTY3NjM4Njg4MSwidXNlcl9pZCI6Ik9MSjVLalI1dHhVYXFRV05uVExVbXY0SHFJYjIiLCJzdWIiOiJPTEo1S2pSNXR4VWFxUVdOblRMVW12NEhxSWIyIiwiaWF0IjoxNjc2Mzg2ODgxLCJleHAiOjE2NzYzOTA0ODEsImVtYWlsIjoic2Ftc3VuZ0B5aW1iYS5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsic2Ftc3VuZ0B5aW1iYS5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.PndRWV7Y6GgGppRg1lKMd2ZdKePNU-ZvtA2-87NBJbjPxRXIZYoKxLrwJtC9iUxlx2jDhV3BNM2wlXMq3FK51gcMEV3coXNBu4-b9ayctYZub0cTLXdZ0ZnI-tF3Gv7Nx7xkBzl8aNDJlCAl-4UODgY2IKfcEwMv1tmuuly7eeqjEB52woqQtohEWg7t_3i_HsM7tc0zRrSfdXMMBVnDp7LziPOqu6Mtev59eaGsvowVFLwbX88Ju2w7LeFWhxa9vGHWaJOshWFl__T-uNXXTn_yDDl97502lgbo9fp5wL1XZ01FdiOEGz6r_ztoZ2ZPhbJOQQqQfXhPIy7bDbu3Sw
+                    registered: true
+                    refreshToken: APJWN8dI8CVL5764yVNqjqjhk8KPRue-FlpNBHRzpaj-5S-VhNcc-bxJprRtLLTceJcTMkJIjh5cQ2syNL_BfgTWBC4Ts5Tmhb2OCjR70MOdNDcYbihjObpNC9YmCTThKhliYxzrjRGqV8BO-36Ck2RgfaAaxDeBB8yHLDdyzJKI6tqcxZGm5Rkf-MiqlCFknR6VjtWhzSGTv13naoRMVTWd5B7pWJ4mHg
+                    expiresIn: '3600'
               examples:
                 Example Response:
                   value:
-                    access_token: Token Data
-                    expires_in: 86400
-                    token_type: Bearer
-      description: 'This endpoint allows you to send a POST request with your **Client Authentication ID** and **Client Passkey** which are issued to you by Yimba. In order to ensure correct authentication, POST requests must be made with the exact data in the request body as show below'
+                    kind: identitytoolkit#VerifyPasswordResponse
+                    localId: OLJ5KjR5txUaqQWNnTLUmv4HqIb2
+                    email: username@yimba.com
+                    displayName: ''
+                    idToken: eyJhbGciOiJSUzI1NiIsImtpZCI6ImFlYjMxMjdiMjRjZTg2MDJjODEyNDUxZThmZTczZDU4MjkyMDg4N2MiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20veWltYmEtc2VjdXJpdHkiLCJhdWQiOiJ5aW1iYS1zZWN1cml0eSIsImF1dGhfdGltZSI6MTY3NjM4Njg4MSwidXNlcl9pZCI6Ik9MSjVLalI1dHhVYXFRV05uVExVbXY0SHFJYjIiLCJzdWIiOiJPTEo1S2pSNXR4VWFxUVdOblRMVW12NEhxSWIyIiwiaWF0IjoxNjc2Mzg2ODgxLCJleHAiOjE2NzYzOTA0ODEsImVtYWlsIjoic2Ftc3VuZ0B5aW1iYS5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsic2Ftc3VuZ0B5aW1iYS5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.PndRWV7Y6GgGppRg1lKMd2ZdKePNU-ZvtA2-87NBJbjPxRXIZYoKxLrwJtC9iUxlx2jDhV3BNM2wlXMq3FK51gcMEV3coXNBu4-b9ayctYZub0cTLXdZ0ZnI-tF3Gv7Nx7xkBzl8aNDJlCAl-4UODgY2IKfcEwMv1tmuuly7eeqjEB52woqQtohEWg7t_3i_HsM7tc0zRrSfdXMMBVnDp7LziPOqu6Mtev59eaGsvowVFLwbX88Ju2w7LeFWhxa9vGHWaJOshWFl__T-uNXXTn_yDDl97502lgbo9fp5wL1XZ01FdiOEGz6r_ztoZ2ZPhbJOQQqQfXhPIy7bDbu3Sw
+                    registered: true
+                    refreshToken: APJWN8dI8CVL5764yVNqjqjhk8KPRue-FlpNBHRzpaj-5S-VhNcc-bxJprRtLLTceJcTMkJIjh5cQ2syNL_BfgTWBC4Ts5Tmhb2OCjR70MOdNDcYbihjObpNC9YmCTThKhliYxzrjRGqV8BO-36Ck2RgfaAaxDeBB8yHLDdyzJKI6tqcxZGm5Rkf-MiqlCFknR6VjtWhzSGTv13naoRMVTWd5B7pWJ4mHg
+                    expiresIn: '3600'
       requestBody:
         content:
           application/json:
             schema:
               type: object
               properties:
-                client_id:
+                email:
                   type: string
-                client_secret:
+                password:
                   type: string
-                audience:
-                  type: string
-                grant_type:
-                  type: string
+                returnSecureToken:
+                  type: boolean
+              x-examples:
+                Example 1:
+                  email: samsung@yimba.com
+                  password: Yimba2022!
+                  returnSecureToken: true
             examples:
               Example Request:
                 value:
-                  client_id: Your Client Access ID
-                  client_secret: Your Client Passkey
-                  audience: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ5aW1iYVBsYXRmb3JtIjoieWltYmEtc2VjdXJpdHkifQ.q7r76PsKS01nMJLIN8Wbn5xhZJ9S3wQsgyP9TdOSpV8
-                  grant_type: client_credentials
-        description: ''
+                  email: user@yimba.com
+                  password: myP455w0rd!
+                  returnSecureToken: true
+        description: The request object should contain the issued email address and password
+      description: 'This endpoint allows you to send a POST request with your **Username** and **Password** which are issued to you by Yimba. Once requested, a token is valid for a 60 minute period. After this time, the token will expire and a new token will need to be requested.'
       tags:
-        - Get API Token
-    parameters: []
+        - Get Security Token
 components:
   schemas: {}
   securitySchemes: {}
