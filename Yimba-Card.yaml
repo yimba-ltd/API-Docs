@@ -4029,9 +4029,16 @@ paths:
           description: OK
           examples:
             Example Response:
-              Card Provider Reference Updated: 108af8e3-bc18-4ffe-bfcb-4a66a034f5c8
+              Card Provider Reference Updated: 24bbb7ba-ad3b-11ed-9862-02864cf13bf6
+          schema:
+            type: object
+            properties:
+              Card Provider Reference Updated:
+                type: string
+            x-examples:
+              Example 1:
+                Card Provider Reference Updated: 24bbb7ba-ad3b-11ed-9862-02864cf13bf6
       description: The PUT Method specified at this branch will allow you to send an update to the Card Metadata to change the Card Provider Reference ID on demand. The request requires you to send the **card_identifier** as well as your new reference string specified in the **provider_reference** field
-      security: []
       parameters:
         - type: string
           in: header
