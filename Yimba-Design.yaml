@@ -16,10 +16,6 @@ paths:
           in: header
           required: true
           type: string
-        - name: x-psu-access-token
-          in: header
-          required: false
-          type: string
       responses:
         '200':
           description: 200 response
@@ -58,7 +54,7 @@ paths:
       security:
         - jwt-rsa-custom-authorizer: []
       summary: Get Available Designs
-      description: "The GET operation at the root of the design service will return all available card designs to you based on your card programme. Your **ClientID** is tied to your available card designs. You may have been issued multiple **ClientID's** by Yimba depending on your issuing status and programme."
+      description: The GET operation at the root of the design service will return all available card designs to you based on your card programme. Your **ClientID** is tied to your available card designs. You may have been issued multiple **ClientID's** by Yimba depending on your issuing status and programme.
       tags:
         - Base Design Service
   /category:
@@ -69,10 +65,6 @@ paths:
         - name: x-client-access-token
           in: header
           required: true
-          type: string
-        - name: x-psu-access-token
-          in: header
-          required: false
           type: string
       responses:
         '200':
@@ -129,7 +121,7 @@ paths:
                     type: string
       security:
         - jwt-rsa-custom-authorizer: []
-      description: "The GET operation at the category endpoint will return a list of available design categories to you based on your card programme. Your **ClientID** is tied to your available card designs. You may have been issued multiple **ClientID's** by Yimba depending on your issuing status and programme."
+      description: The GET operation at the category endpoint will return a list of available design categories to you based on your card programme. Your **ClientID** is tied to your available card designs. You may have been issued multiple **ClientID's** by Yimba depending on your issuing status and programme.
       summary: Get Available Designs By Category
       tags:
         - Designs By Category
