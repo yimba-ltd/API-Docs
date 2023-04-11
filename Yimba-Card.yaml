@@ -4220,6 +4220,88 @@ paths:
           name: x-client-access-token
           required: true
       security: []
+  /programmes:
+    get:
+      produces:
+        - application/json
+      summary: Get Available Card Programmes
+      tags: []
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              programmes:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    network:
+                      type: string
+                    issuer_name:
+                      type: string
+                    country_code:
+                      type: string
+                    card_product_name:
+                      type: string
+                    client_access_token:
+                      type: string
+                    card_programme_reference:
+                      type: string
+            x-examples:
+              Example 1:
+                programmes:
+                  - network: MasterCard
+                    issuer_name: SoFi
+                    country_code: US
+                    card_product_name: Samsung Money by SoFi
+                    client_access_token: 33a206c5-b3ca-4760-af3f-b6cbcd093e57
+                    card_programme_reference: '5555'
+                  - network: MasterCard
+                    issuer_name: SoFi
+                    country_code: US
+                    card_product_name: Samsung Money by SoFi
+                    client_access_token: 33a206c5-b3ca-4760-af3f-b6cbcd093e57
+                    card_programme_reference: SamsungMoneySoFi
+          examples:
+            Example Response:
+              programmes:
+                - network: MasterCard
+                  issuer_name: SoFi
+                  country_code: US
+                  card_product_name: Samsung Money by SoFi
+                  client_access_token: 33a206c5-b3ca-4760-af3f-b6cbcd093e57
+                  card_programme_reference: '5555'
+                - network: MasterCard
+                  issuer_name: SoFi
+                  country_code: US
+                  card_product_name: Samsung Money by SoFi
+                  client_access_token: 33a206c5-b3ca-4760-af3f-b6cbcd093e57
+                  card_programme_reference: SamsungMoneySoFi
+        '400':
+          description: Bad Request
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+            x-examples:
+              Example 1:
+                error: No Available Card Programme Data
+          examples:
+            Example Error:
+              error: No Available Card Programme Data
+      operationId: get-programmes
+      security:
+        - Bearer tokenvalue: []
+      description: 'Get''s available card programmes from Yimba Platform for Samsung Wallet enabled issuers. '
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties: {}
 securityDefinitions:
   Bearer tokenvalue:
     name: Authorization
