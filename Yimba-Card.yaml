@@ -4231,24 +4231,6 @@ paths:
           description: OK
           schema:
             type: object
-            properties:
-              programmes:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    network:
-                      type: string
-                    issuer_name:
-                      type: string
-                    country_code:
-                      type: string
-                    card_product_name:
-                      type: string
-                    client_access_token:
-                      type: string
-                    card_programme_reference:
-                      type: string
             x-examples:
               Example 1:
                 programmes:
@@ -4264,6 +4246,30 @@ paths:
                     card_product_name: Samsung Money by SoFi
                     client_access_token: 33a206c5-b3ca-4760-af3f-b6cbcd093e57
                     card_programme_reference: SamsungMoneySoFi
+            properties:
+              programmes:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    network:
+                      type: string
+                      description: 'Network for the card issuance e.g. ''AMEX'', ''Mastercard'',''Visa'''
+                    issuer_name:
+                      type: string
+                      description: The card issuer name e.g 'Bank of America'
+                    country_code:
+                      type: string
+                      description: Max Length = 2. Provided in ISO 3166-2 (Alpha 2) Format
+                    card_product_name:
+                      type: string
+                      description: The card program name as specified by the network e.g 'SamsungMoneyBySoFi'
+                    client_access_token:
+                      type: string
+                      description: A unique idenifer used for the card programme content.Provided as a UUID defined by RSA 4122 Standard
+                    card_programme_reference:
+                      type: string
+                      description: A string that identifies the card programme for registering a card with the Yimba Platform
           examples:
             Example Response:
               programmes:
@@ -4295,7 +4301,7 @@ paths:
       operationId: get-programmes
       security:
         - Bearer tokenvalue: []
-      description: 'Get''s available card programmes from Yimba Platform for Samsung Wallet enabled issuers. '
+      description: Get's available card programmes from Yimba Platform for Samsung Wallet enabled issuers. Providers a list of active card programmes and their corresponding data. Provides the client access token matching a card programme along with the card programme reference for registering a new card
       parameters:
         - in: body
           name: body
