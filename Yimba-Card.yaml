@@ -4137,7 +4137,7 @@ paths:
                 status: No Valid Card Identifier Was Specified
           examples:
             Invalid Design ID:
-              status: No Valid Desaign Identifier Was Specified
+              status: No Valid Design Identifier Was Specified
             Invalid Card ID:
               status: No Valid Card Identifier Was Specified
       security: []
