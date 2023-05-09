@@ -4125,6 +4125,21 @@ paths:
           examples:
             Example Response:
               status: ok
+        '400':
+          description: Bad Request
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+            x-examples:
+              Example 1:
+                status: No Valid Card Identifier Was Specified
+          examples:
+            Invalid Design ID:
+              status: No Valid Desaign Identifier Was Specified
+            Invalid Card ID:
+              status: No Valid Card Identifier Was Specified
       security: []
       description: |-
         The POST operation at the design endpoint will update the stored design identifier for the specified card. This request will require you to specify the **CardID** of the card you are updating as well as the corresponding **DesignID** that is obtained from the Yimba Design Service.
