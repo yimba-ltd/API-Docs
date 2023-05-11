@@ -4113,7 +4113,6 @@ paths:
         - type: string
           in: header
           name: profile_identifier
-          required: true
       responses:
         '200':
           description: OK
@@ -4129,13 +4128,15 @@ paths:
           description: Bad Request
           schema:
             type: object
-            properties:
-              status:
-                type: string
             x-examples:
               Example 1:
                 status: No Valid Card Identifier Was Specified
+            properties:
+              status:
+                type: string
           examples:
+            Invalid Client Access Token:
+              status: No Valid Client Access Token Was Specified
             Invalid Design ID:
               status: No Valid Design Identifier Was Specified
             Invalid Card ID:
