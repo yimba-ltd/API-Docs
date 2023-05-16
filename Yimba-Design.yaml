@@ -119,6 +119,19 @@ paths:
                     type: number
                   parent_catagory:
                     type: string
+        '400':
+          description: Bad Request
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+            x-examples:
+              Example 1:
+                error: No Available Card Design Data
+          examples:
+            No Available Data:
+              error: No Available Card Design Data
       security:
         - jwt-rsa-custom-authorizer: []
       description: The GET operation at the category endpoint will return a list of available design categories to you based on your card programme. Your **ClientID** is tied to your available card designs. You may have been issued multiple **ClientID's** by Yimba depending on your issuing status and programme.

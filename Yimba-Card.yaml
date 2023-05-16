@@ -4007,7 +4007,7 @@ paths:
             Example Response:
               card_identifier: 24bbb7ba-ad3b-11ed-9862-02864cf13bf6
               provider_reference: some_other_reference
-        '500':
+        '400':
           description: Specified Bin Number is not setup for your card programme.
           schema:
             type: object
