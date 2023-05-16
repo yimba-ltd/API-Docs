@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 1.0.3
+  version: 1.0.4
   title: Yimba Card
   description: 'The Yimba Card Service features the methods that are available for you to interact with all card based elements of the Yimba Service. Within this service you will find methods for listing all cards within your card program, registering a new card, getting and setting the design identifier for a card as well as obtaining the design history for a given card.'
 host: card.yimbatech.com

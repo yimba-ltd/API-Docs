@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 1.0.0
+  version: 1.0.1
   title: Yimba-Design
   description: The Yimba Design Service features the methods that are available for you to interact with all design based elements of the Yimba Service. Within this service you will find methods for listing all available designs within your card program.
 host: design.yimbatech.com
